@@ -46,3 +46,18 @@ RUN echo y | android update sdk --no-ui --all --filter "${ANDROID_SDK_COMPONENTS
 # Support Gradle
 ENV TERM dumb
 ENV JAVA_OPTS -Xms256m -Xmx512m
+
+# Pre-install gradle for faster builds. You can use the local gradle installation or the wrapper
+# Based on niaquinto/gradle (https://github.com/niaquinto/docker-gradle)
+ENV GRADLE_VERSION 2.6
+ENV GRADLE_HASH 88a116b028e4749c9d77e514904755a9
+WORKDIR /usr/bin
+RUN wget "https://downloads.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip" && \
+    echo "${GRADLE_HASH} gradle-${GRADLE_VERSION}-bin.zip" > gradle-${GRADLE_VERSION}-bin.zip.md5 && \
+    md5sum -c gradle-${GRADLE_VERSION}-bin.zip.md5 && \
+    unzip "gradle-${GRADLE_VERSION}-bin.zip" && \
+    ln -s "gradle-${GRADLE_VERSION}" gradle && \
+    rm "gradle-${GRADLE_VERSION}-bin.zip"
+
+ENV GRADLE_HOME /usr/bin/gradle
+ENV PATH $PATH:$GRADLE_HOME/bin

@@ -1,6 +1,8 @@
 # Docker Android Env
 Docker image for building android apps with gradle.
 
+This image is uploaded to Docker Hub: [https://hub.docker.com/r/sloydev/android-env/](https://hub.docker.com/r/sloydev/android-env/)
+
 ## What's included
 - Ubuntu 15.10 as base image
 - Oracle Java 8
@@ -10,6 +12,17 @@ Docker image for building android apps with gradle.
 - Pre-installed Gradle version 2.6 (you can ignore it and use your wrapper)
 
 Emulators are not included since I don't currently need them. If you need them please open an issue and we'll discuss about it.
+
+## Usage
+Pull the image from Docker Hub...
+```
+docker pull sloydev/android-env
+```
+
+Or build it yourself...
+```
+docker build github.com/sloy/docker-android-env
+```
 
 ## Versioning (tags)
 The tag format for the images is `XX.Y`, where XX points to the Android SDK version used, and Y is the image revision, which increases with every change that doesn't affect the SDK major version. I will hopefully document any changes with Github Releases.

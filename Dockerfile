@@ -41,7 +41,7 @@ ENV PATH ${ANDROID_HOME}/tools:$ANDROID_HOME/platform-tools:$PATH
 
 # Install Android SDK components
 ENV ANDROID_TARGET android-23
-ENV ANDROID_SDK_COMPONENTS tools,platform-tools,build-tools-23.0.2,"${ANDROID_TARGET}",extra-android-m2repository,extra-google-m2repository,extra-android-support,extra-google-google_play_services,extra-google-analytics_sdk_v2
+ENV ANDROID_SDK_COMPONENTS tools,platform-tools,build-tools-23.0.2,"${ANDROID_TARGET}",extra-android-m2repository,extra-google-m2repository
 RUN echo y | android update sdk --no-ui --all --filter "${ANDROID_SDK_COMPONENTS}"
 
 # Support Gradle

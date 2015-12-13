@@ -7,7 +7,7 @@ This image is uploaded to Docker Hub: [https://hub.docker.com/r/sloydev/android-
 - Ubuntu 15.10 as base image
 - Oracle Java 8
 - Android SDK
-  - Build tools 23.0.1
+  - Build tools 23.0.2
   - Platform sdk 23 
 - Pre-installed Gradle version 2.7 (you can ignore it and use your wrapper)
 

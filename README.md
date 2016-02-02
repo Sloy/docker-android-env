@@ -8,8 +8,8 @@ This image is uploaded to Docker Hub: [https://hub.docker.com/r/sloydev/android-
 - Oracle Java 8
 - Android SDK
   - Build tools 23.0.2
-  - Platform sdk 23 
-- Pre-installed Gradle version 2.7 (you can ignore it and use your wrapper)
+  - Platform sdk 23
+- Pre-installed Gradle version 2.10 (you can ignore it and use your wrapper)
 
 Emulators are not included since I don't currently need them. If you need them please open an issue and we'll discuss about it.
 

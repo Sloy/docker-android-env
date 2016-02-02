@@ -51,7 +51,7 @@ ENV JAVA_OPTS -Xms256m -Xmx512m
 # Pre-install gradle for faster builds. You can use the local gradle installation or the wrapper
 # Based on niaquinto/gradle (https://github.com/niaquinto/docker-gradle)
 ENV GRADLE_VERSION 2.10
-ENV GRADLE_HASH c5d8e57186b60c6d6485682f9907b257
+ENV GRADLE_HASH 5b8ad24373252dabce9dead708e409f8
 WORKDIR /usr/bin
 RUN wget "https://downloads.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip" && \
     echo "${GRADLE_HASH} gradle-${GRADLE_VERSION}-bin.zip" > gradle-${GRADLE_VERSION}-bin.zip.md5 && \

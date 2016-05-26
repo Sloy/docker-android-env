@@ -42,7 +42,7 @@ ENV PATH ${ANDROID_HOME}/tools:$ANDROID_HOME/platform-tools:$PATH
 # Install Android SDK components
 ENV ANDROID_TARGET android-23
 ENV ANDROID_SDK_COMPONENTS platform-tools,build-tools-23.0.2,"${ANDROID_TARGET}",extra-android-m2repository,extra-google-m2repository
-RUN echo y | android update sdk --no-ui --all --filter "${ANDROID_SDK_COMPONENTS}"
+RUN expect -c 'set timeout -1; spawn android update sdk --no-ui --all --filter "${ANDROID_SDK_COMPONENTS}"; expect { "[y/n]:" { exp_send "y\r" ; exp_continue } eof }'
 
 # Support Gradle
 ENV TERM dumb

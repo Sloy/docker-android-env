@@ -8,7 +8,7 @@ RUN \
   apt-get -y upgrade && \
   apt-get install -y build-essential && \
   apt-get install -y software-properties-common && \
-  apt-get install -y byobu curl git htop man unzip vim wget && \
+  apt-get install -y byobu expect curl git htop man unzip vim wget && \
   rm -rf /var/lib/apt/lists/*
 
 # Install Java.
@@ -40,9 +40,10 @@ ENV ANDROID_SDK /usr/local/android-sdk-linux
 ENV PATH ${ANDROID_HOME}/tools:$ANDROID_HOME/platform-tools:$PATH
 
 # Install Android SDK components
-ENV ANDROID_TARGET android-23
-ENV ANDROID_SDK_COMPONENTS platform-tools,build-tools-23.0.2,"${ANDROID_TARGET}",extra-android-m2repository,extra-google-m2repository
-RUN echo y | android update sdk --no-ui --all --filter "${ANDROID_SDK_COMPONENTS}"
+# Install sdk elements
+ADD updateSDK.sh /usr/local/android-sdk-linux/updateSDK.sh
+RUN chmod +x /usr/local/android-sdk-linux/updateSDK.sh
+RUN /usr/local/android-sdk-linux/updateSDK.sh
 
 # Support Gradle
 ENV TERM dumb
